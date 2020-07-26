@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>반응 확인</title>
+    <style>
+        #screen {
+            width : 300px;
+            height: 200px;
+            text-align : center;
+            user-select: none;
+        }
+        #screen.waiting {
+            background-color: blueviolet;
+        }
+        #screen.ready {
+            background-color: rgb(10, 50, 95);
+            color : black;
+        }     
+        #screen.now {
+            background-color: green;
+
+        }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script src="./dist/app.js"></script>
+</body>
+</html>
