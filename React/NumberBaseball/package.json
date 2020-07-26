@@ -1,0 +1,22 @@
+{
+  "name": "number-baseball-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot"
+  },
+  "author": "jiwon kim",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.1",
+    "react-hot-loader": "^4.12.21",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0"
+  }
+}
