@@ -1,20 +1,26 @@
 import React from 'react';
+
+import NicknameEditForm from '../components/NicknameEditForm';
 import AppLayout from '../components/AppLayout';
-import Head from 'next/head';
+import FollowList from '../components/FollowList';
 
 const Profile = () => {
-    return (
-        <>
-            <Head>
-                <title>NodeBird</title>
-                <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.css"></link>
-                <script src="http://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.js" />
-            </Head>
-            <AppLayout>
-                <div>내 프로필</div>
-            </AppLayout>
-        </>
-    );
+  const followerList = [{ nickname: '김지원' }, { nickname: '카카오닙스' }, { nickname: '자바칩' }];
+  const followingList = [{ nickname: '김지원' }, { nickname: '캣닢' }, { nickname: '블루베리' }];
+
+  return (
+    <AppLayout>
+      <NicknameEditForm />
+      <FollowList
+        header="팔로잉 목록"
+        data={followingList}
+      />
+      <FollowList
+        header="팔로워 목록"
+        data={followerList}
+      />
+    </AppLayout>
+  );
 };
 
 export default Profile;

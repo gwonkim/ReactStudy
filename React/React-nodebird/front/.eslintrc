@@ -1,3 +1,5 @@
+/* 코드 스타일 획일화? */
+
 {
     "parserOptions": {
         "ecmaVersion": 2020,

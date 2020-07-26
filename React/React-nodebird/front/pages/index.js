@@ -1,21 +1,39 @@
-import React from 'react'; //next는 안 해도 됨 but { use~ } 때문에 결국 사용 
-import Link from 'next/link';
+import React from 'react';
+import PostForm from '../components/PostForm';
+import PostCard from '../components/PostCard';
 import AppLayout from '../components/AppLayout';
-import Head from 'next/head';
 
+const dummy = {
+  isLoggedIn: true,
+  imagePaths: [],
+  mainPosts: [{
+    id: 1,
+    User: {
+      id: 1,
+      nickname: '김지원',
+    },
+    content: '첫 번째 게시글',
+    Images: [{
+      src: '../component/bonobono.jpg',
+    }, {
+      src: '../component/bonobono.jpg',
+    }, {
+      src: '../component/bonobono.jpg',
+    }]
+  }],
+};
 
 const Home = () => {
-    return (
-        <>
-            <Head>
-                <title>NodeBird</title>
-                <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.css"></link>
-                <script src="http://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.js" />
-            </Head>
-            <Link href="/about" ><a>about</a></Link>
-            <div>Hello, Next!</div>
-        </>
-    );
+  return (
+    <AppLayout>
+      {dummy.isLoggedIn && <PostForm />}
+      {dummy.mainPosts.map((c) => {
+        return (
+          <PostCard key={c.id} post={c} />
+        );
+      })}
+    </AppLayout>
+  );
 };
 
 export default Home;
