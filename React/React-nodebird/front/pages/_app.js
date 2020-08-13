@@ -5,10 +5,12 @@ import { createWrapper } from 'next-redux-wrapper';
 import AppLayout from '../components/AppLayout';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
-
+import createSagaMiddleware from 'redux-saga';
+import withRedux from 'next-redux-wrapper;'
 import wrapper from '../store/configureStore';
 import { initialState } from '../reducers/user';
-import { applyMiddleware } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
+import rootSaga from '../sagas';
 
 const NodeBird = ({ Component, store }) => {
   return (
@@ -26,8 +28,8 @@ const NodeBird = ({ Component, store }) => {
 };
 
 NodeBird.propTypes = {
-  Component: PropTypes.elementType,
-  store: PropTypes.object,
+  Component: PropTypes.elementType.isRequired,
+  store: PropTypes.object.isRequired,
 };
 
 const configureStore = (initialState, options) => {
@@ -45,7 +47,6 @@ const configureStore = (initialState, options) => {
   sagaMiddleware.run(rootSaga);
   return store;
 };
-
 
 export default withRedux(configureStore)(NodeBird);
 
