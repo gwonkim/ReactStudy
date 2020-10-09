@@ -1,16 +1,44 @@
-import Prototypes from 'prop-types';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import { Menu, Input, Button, Row, Col } from 'antd';
 
-const AppLayout = ( { children }) => {
+const AppLayout = ({ children }) => {
     return (
-        <AppLayout>
-            <div>공통메뉴</div>
-            {children}
-        </AppLayout>
-        )
-}
+        <div>
+            <Menu mode="horizontal">
+                <Menu.Item key="home">
+                    <Link href="/"><a>노드버드</a></Link>
+                </Menu.Item>
+                <Menu.Item key="profile">
+                    <Link href="/profile"><a>프로필</a></Link>
+                </Menu.Item>
+                <Menu.Item key="mail">
+                    <Input.Search enterButton style={{ verticalAlign: 'middle' }} />
+                </ Menu.Item>
+            </ Menu>
+            <Row>
+                <Col xs={24} md={6}>
+                    왼쪽 메뉴
+    </Col>
+                <Col xs={24} md={12}>
+                    {children}
+                </Col>
+                <Col xs={24} md={6}>
+                    오른쪽
+    </Col>
+            </Row>
 
-AppLayout.prototypes = {
-    children: Prototypes.node.isRequired,
+
+            <Link href="/signup">
+                <a><Button>회원가입</Button></a>
+            </Link>
+
+        </div>
+    );
+};
+
+AppLayout.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default AppLayout;
